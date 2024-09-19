@@ -1,0 +1,64 @@
+unit uPedido;
+
+interface
+
+uses
+  System.Generics.Collections, uCliente, uPedidoItem;
+
+type
+  TPedido = class
+  private
+    FNumero: Integer;
+    FDataEmissao: TDateTime;
+    FCliente: TCliente;
+    FValorTotal: Currency;
+    FItens: TObjectList<TPedidoItem>;
+    function GetValorTotal: Currency;
+  public
+    constructor Create;
+    destructor Destroy; override;
+    procedure AdicionarItem(aItem: TPedidoItem);
+    procedure RemoverItem(aItem: TPedidoItem);
+
+    property Numero: Integer read FNumero write FNumero;
+    property DataEmissao: TDateTime read FDataEmissao write FDataEmissao;
+    property Cliente: TCliente read FCliente write FCliente;
+    property Itens: TObjectList<TPedidoItem> read FItens;
+    property ValorTotal: Currency read GetValorTotal;
+  end;
+
+implementation
+
+{ TPedido }
+
+procedure TPedido.AdicionarItem(aItem: TPedidoItem);
+begin
+  FItens.Add(aItem);
+end;
+
+constructor TPedido.Create;
+begin
+  FItens := TObjectList<TPedidoItem>.Create;
+end;
+
+destructor TPedido.Destroy;
+begin
+  FItens.Free;
+  inherited;
+end;
+
+function TPedido.GetValorTotal: Currency;
+var
+  Item: TPedidoItem;
+begin
+  Result := 0;
+  for Item in FItens do
+    Result := Result + (Item.Quantidade * Item.ValorUnitario);
+end;
+
+procedure TPedido.RemoverItem(aItem: TPedidoItem);
+begin
+  FItens.Remove(aItem);
+end;
+
+end.

@@ -1,0 +1,41 @@
+unit uItemPedido;
+
+interface
+
+uses
+  uProduto;
+
+type
+  TItemPedido = class
+  private
+    FProduto: TProduto;
+    FQuantidade: Integer;
+    FValorUnitario: Currency;
+    function GetValorTotal: Currency;
+  public
+    constructor Create(aProduto: TProduto; aQuantidade: Integer; aValorUnitario: Currency);
+    property Produto: TProduto read FProduto write FProduto;
+    property Quantidade: Integer read FQuantidade write FQuantidade;
+    property ValorUnitario: Currency read FValorUnitario write FValorUnitario;
+    property ValorTotal: Currency read GetValorTotal;
+  end;
+
+
+implementation
+
+{ TItemPedido }
+
+constructor TItemPedido.Create(aProduto: TProduto; aQuantidade: Integer;
+  aValorUnitario: Currency);
+begin
+  FProduto := aProduto;
+  FQuantidade := aQuantidade;
+  FValorUnitario := aValorUnitario;
+end;
+
+function TItemPedido.GetValorTotal: Currency;
+begin
+  Result := FQuantidade * FValorUnitario;
+end;
+
+end.

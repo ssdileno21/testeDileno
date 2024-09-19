@@ -1,0 +1,48 @@
+unit uPedidoItemDAO;
+
+interface
+
+uses
+  System.SysUtils, FireDAC.Comp.Client, uPedidoItem, uConexao, UConfigDatabase;
+
+type
+  TPedidoItemDAO = class
+  private
+    FConn: TFDConnection;
+    FConfig: TConfigDatabase;
+  public
+    constructor Create;
+    destructor Destroy; override;
+    procedure GravarPedidoItemProduto(PedidoItem:TPedidoItem);
+    procedure ExcluiPedidoItem(PedidoItem:TPedidoItem);
+  end;
+
+
+implementation
+
+{ TPedidoItensDAO }
+
+constructor TPedidoItemDAO.Create;
+begin
+  inherited Create;
+  FConfig := TConfigDatabase.Create;
+  FConn := FConfig.GetConnection;
+end;
+
+destructor TPedidoItemDAO.Destroy;
+begin
+  FConn.Free;
+  inherited;
+end;
+
+procedure TPedidoItemDAO.ExcluiPedidoItem(PedidoItem: TPedidoItem);
+begin
+
+end;
+
+procedure TPedidoItemDAO.GravarPedidoItemProduto(PedidoItem: TPedidoItem);
+begin
+
+end;
+
+end.

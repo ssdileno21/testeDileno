@@ -1,0 +1,54 @@
+unit UConfigDatabase;
+
+interface
+
+uses
+  System.IniFiles, System.SysUtils;
+
+type
+  TConfigDatabase = class
+  private
+    FDatabase: string;
+    FUsername: string;
+    FPassword: string;
+    FServer: string;
+    FPort: Integer;
+    FLibPath: string;
+  public
+    constructor Create;
+    procedure LoadFromIni(const FileName: string);
+    property Database: string read FDatabase;
+    property Username: string read FUsername;
+    property Password: string read FPassword;
+    property Server: string read FServer;
+    property Port: Integer read FPort;
+    property LibPath: string read FLibPath;
+  end;
+
+implementation
+
+{ TConfigDatabase }
+
+constructor TConfigDatabase.Create;
+begin
+  inherited Create;
+end;
+
+procedure TConfigDatabase.LoadFromIni(const FileName: string);
+var
+  IniFile: TIniFile;
+begin
+  IniFile := TIniFile.Create(FileName);
+  try
+    FDatabase := IniFile.ReadString('DatabaseConfig', 'Database', '');
+    FUsername := IniFile.ReadString('DatabaseConfig', 'Username', '');
+    FPassword := IniFile.ReadString('DatabaseConfig', 'Password', '');
+    FServer := IniFile.ReadString('DatabaseConfig', 'Server', '');
+    FPort := IniFile.ReadInteger('DatabaseConfig', 'Port', 5432);
+    FLibPath := IniFile.ReadString('DatabaseConfig', 'LibPath', '');
+  finally
+    IniFile.Free;
+  end;
+end;
+
+end.

@@ -1,0 +1,57 @@
+unit uPedidoItem;
+
+interface
+
+type
+  TPedidoItem = class
+  private
+    FIdItem: Integer;
+    FNumeroPedido: Integer;
+    FCodigoProduto: string;
+    FDescricaoProduto: string;
+    FQuantidade: Integer;
+    FValorUnitario: Currency;
+    procedure SetQuantidade(const Value: Integer);
+    procedure SetValorUnitario(const Value: Currency);
+  public
+    property IdItem: Integer read FIdItem write FIdItem;
+    property NumeroPedido: Integer read FNumeroPedido write FNumeroPedido;
+    property CodigoProduto: string read FCodigoProduto write FCodigoProduto;
+    property DescricaoProduto: string read FDescricaoProduto write FDescricaoProduto;
+    property Quantidade: Integer read FQuantidade write SetQuantidade;
+    property ValorUnitario: Currency read FValorUnitario write SetValorUnitario;
+    procedure AtualizarValores;
+  end;
+
+implementation
+
+uses
+  uProdutoDAO;
+
+procedure TPedidoItem.AtualizarValores;
+var
+  Preco: Currency;
+  ProdutoDAO: TProdutoDAO;
+begin
+  ProdutoDAO := TProdutoDAO.Create;
+  try
+    Preco := ProdutoDAO.ObterPrecoVenda(FCodigoProduto);
+    FValorUnitario := Preco;
+    FDescricaoProduto := ProdutoDAO.ObterDescricaoProduto(FCodigoProduto);
+  finally
+    ProdutoDAO.Free;
+  end;
+end;
+
+procedure TPedidoItem.SetQuantidade(const Value: Integer);
+begin
+  FQuantidade := Value;
+end;
+
+procedure TPedidoItem.SetValorUnitario(const Value: Currency);
+begin
+  FValorUnitario := Value;
+end;
+
+end.
+

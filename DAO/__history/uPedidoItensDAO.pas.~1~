@@ -1,0 +1,54 @@
+unit uPedidoItensDAO;
+
+interface
+
+uses
+  System.SysUtils, FireDAC.Comp.Client, uPedidoItem, uConexao;
+
+type
+  TPedidoItensDAO = class
+  private
+    FConexao: TFDConnection;
+  public
+    constructor Create(aConexao: TFDConnection);
+    procedure GravarItem(Item: TPedidoItem; NumeroPedido: Integer);
+    procedure DeletarItensPorPedido(NumeroPedido: Integer);
+  end;
+
+implementation
+
+{ TPedidoItensDAO }
+
+constructor TPedidoItensDAO.Create(aConexao: TFDConnection);
+begin
+  FConexao := aConexao;
+end;
+
+procedure TPedidoItensDAO.DeletarItensPorPedido(NumeroPedido: Integer);
+begin
+
+end;
+
+procedure TPedidoItensDAO.GravarItem(Item: TPedidoItem; NumeroPedido: Integer);
+var
+  FDQuery: TFDQuery;
+begin
+  FDQuery := TFDQuery.Create(nil);
+  try
+    FDQuery.Connection := FConexao;
+    FDQuery.SQL.Text := 'INSERT INTO PedidoItens (NumeroPedido, CodigoProduto,'+
+                        'Quantidade, ValorUnitario, ValorTotal) ' +
+                        'VALUES (:NumeroPedido, :CodigoProduto, :Quantidade, '+
+                        ':ValorUnitario, :ValorTotal)';
+    FDQuery.ParamByName('NumeroPedido').AsInteger := NumeroPedido;
+    FDQuery.ParamByName('CodigoProduto').AsInteger := Item.CodigoProduto;
+    FDQuery.ParamByName('Quantidade').AsInteger := Item.Quantidade;
+    FDQuery.ParamByName('ValorUnitario').AsCurrency := Item.ValorUnitario;
+    FDQuery.ParamByName('ValorTotal').AsCurrency := Item.ValorTotal;
+    FDQuery.ExecSQL;
+  finally
+    FDQuery.Free;
+  end;
+end;
+
+end.

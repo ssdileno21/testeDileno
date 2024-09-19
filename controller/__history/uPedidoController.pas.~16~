@@ -1,0 +1,65 @@
+unit uPedidoController;
+
+interface
+
+uses
+  UPedidoDAO, UPedido, System.SysUtils, FireDAC.Comp.Client, uProdutoDAO,
+  Vcl.Dialogs;
+
+type
+  TPedidoController = class
+  private
+    FPedidoDAO: TPedidoDAO;
+  public
+    constructor Create;
+    destructor Destroy; override;
+
+    procedure GravarPedido(Pedido: TPedido);
+    procedure ExcluirPedido(PedidoID: Integer);
+    procedure GravarPedidoItem(Pedi);
+    procedure ExcluirProduto(PedidoID: Integer);
+    procedure CancelarPedido;
+    procedure ListarPedidos;
+  end;
+
+implementation
+
+{ TPedidoController }
+
+procedure TPedidoController.CancelarPedido;
+begin
+
+end;
+
+constructor TPedidoController.Create;
+begin
+  FPedidoDAO := TPedidoDAO.Create;
+end;
+
+destructor TPedidoController.Destroy;
+begin
+  FPedidoDAO.Free;
+  inherited;
+end;
+
+procedure TPedidoController.ExcluirPedido(PedidoID: Integer);
+begin
+  FPedidoDAO.ExcluirPedido(PedidoID);
+end;
+
+procedure TPedidoController.ExcluirProduto(PedidoID: Integer);
+begin
+
+end;
+
+procedure TPedidoController.GravarPedido(Pedido: TPedido);
+begin
+  FPedidoDAO.GravarPedido(Pedido);
+end;
+
+procedure TPedidoController.ListarPedidos;
+begin
+
+end;
+
+end.

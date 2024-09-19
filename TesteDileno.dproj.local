@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2024/09/17 22:42:56.000.571,=C:\Users\dileno.santos\OneDrive - Linx SA\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/09/17 22:43:21.000.372,C:\testeDileno\views\uFrmPedidoVenda.dfm=C:\Users\dileno.santos\OneDrive - Linx SA\Documentos\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2024/09/17 22:43:21.000.372,C:\testeDileno\views\uFrmPedidoVenda.pas=C:\Users\dileno.santos\OneDrive - Linx SA\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/09/17 22:43:32.000.984,C:\testeDileno\TesteDileno.dproj=C:\Users\dileno.santos\OneDrive - Linx SA\Documentos\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2024/09/17 23:40:29.000.458,=C:\testeDileno\Unit1.pas</Transaction>
+    <Transaction>2024/09/17 23:45:33.000.704,C:\testeDileno\Unit1.pas=C:\testeDileno\model\UCliente.pas</Transaction>
+    <Transaction>2024/09/17 23:47:31.000.035,=C:\testeDileno\Unit1.pas</Transaction>
+    <Transaction>2024/09/17 23:48:32.000.767,C:\testeDileno\Unit1.pas=C:\testeDileno\model\uProduto.pas</Transaction>
+    <Transaction>2024/09/17 23:48:44.000.627,=C:\testeDileno\Unit1.pas</Transaction>
+    <Transaction>2024/09/17 23:49:56.000.444,C:\testeDileno\Unit1.pas=C:\testeDileno\model\uItemPedido.pas</Transaction>
+    <Transaction>2024/09/17 23:50:57.000.574,=C:\testeDileno\Unit1.pas</Transaction>
+    <Transaction>2024/09/17 23:52:46.000.041,C:\testeDileno\Unit1.pas=C:\testeDileno\model\uPedido.pas</Transaction>
+    <Transaction>2024/09/17 23:52:56.000.842,C:\testeDileno\model\UCliente.pas=</Transaction>
+    <Transaction>2024/09/17 23:53:15.000.474,=C:\testeDileno\model\uCliente.pas</Transaction>
+    <Transaction>2024/09/17 23:58:25.000.590,=C:\testeDileno\Unit1.pas</Transaction>
+    <Transaction>2024/09/18 00:35:11.000.018,=C:\testeDileno\Unit2.pas</Transaction>
+    <Transaction>2024/09/18 00:35:34.000.753,C:\testeDileno\Unit2.pas=C:\testeDileno\controller\uPedidoController.pas</Transaction>
+    <Transaction>2024/09/18 00:36:25.000.625,C:\testeDileno\Unit1.pas=C:\testeDileno\DAO\uPedidoDAO.pas</Transaction>
+    <Transaction>2024/09/18 00:42:47.000.568,=C:\testeDileno\Unit1.pas</Transaction>
+    <Transaction>2024/09/18 00:44:09.000.730,C:\testeDileno\Unit1.pas=C:\testeDileno\config\UConfigDatabase.pas</Transaction>
+    <Transaction>2024/09/18 01:01:36.000.289,=C:\testeDileno\Unit1.pas</Transaction>
+    <Transaction>2024/09/18 01:02:05.000.688,C:\testeDileno\Unit1.pas=C:\testeDileno\model\uPedidoItem.pas</Transaction>
+    <Transaction>2024/09/18 01:04:27.000.588,=C:\testeDileno\Unit1.pas</Transaction>
+    <Transaction>2024/09/18 01:06:04.000.814,C:\testeDileno\Unit1.pas=C:\testeDileno\DAO\uPedidoItensDAO.pas</Transaction>
+    <Transaction>2024/09/18 01:09:55.000.421,=C:\testeDileno\Unit1.pas</Transaction>
+    <Transaction>2024/09/18 01:10:06.000.453,C:\testeDileno\Unit1.pas=C:\testeDileno\config\uConexao.pas</Transaction>
+    <Transaction>2024/09/18 02:51:35.000.311,=C:\testeDileno\Unit1.pas</Transaction>
+    <Transaction>2024/09/18 02:51:54.000.561,C:\testeDileno\Unit1.pas=C:\testeDileno\DAO\uProdutoDAO.pas</Transaction>
+    <Transaction>2024/09/18 09:13:08.000.305,C:\testeDileno\model\uItemPedido.pas=</Transaction>
+    <Transaction>2024/09/18 21:21:22.000.725,=C:\testeDileno\Unit1.pas</Transaction>
+    <Transaction>2024/09/18 21:21:45.000.170,C:\testeDileno\Unit1.pas=C:\testeDileno\controller\uPedidoItemController.pas</Transaction>
+    <Transaction>2024/09/18 21:23:09.000.682,=C:\testeDileno\Unit1.pas</Transaction>
+    <Transaction>2024/09/18 21:23:28.000.871,C:\testeDileno\Unit1.pas=C:\testeDileno\DAO\uPedidoItemDAO.pas</Transaction>
+    <Transaction>2024/09/18 21:53:35.000.258,C:\testeDileno\DAO\uPedidoItensDAO.pas=</Transaction>
+  </Transactions>
+</BorlandProject>

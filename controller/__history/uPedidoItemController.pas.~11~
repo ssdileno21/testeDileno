@@ -1,0 +1,87 @@
+unit uPedidoItemController;
+
+interface
+
+uses
+  uPedidoItem, uPedidoItemDAO, uProdutoDAO;
+
+type
+  TPedidoItemController = class
+  private
+    FPedidoItemDAO: TPedidoItemDAO;
+    FProdutoDAO: TProdutoDAO;
+  public
+    constructor Create;
+    destructor Destroy; override;
+
+    procedure GravarPedidoItem(CodigoProduto: Integer; Quantidade: Integer);
+    procedure ExcluirProduto(CodigoProduto: Integer);
+    function BuscarPrecoProduto(CodigoProduto: string): Currency;
+    procedure AtualizarItem(CodigoProduto: string; Quantidade: Integer);
+  end;
+
+implementation
+
+constructor TPedidoItemController.Create;
+begin
+  FPedidoItemDAO := TPedidoItemDAO.Create;
+  FProdutoDAO := TProdutoDAO.Create;
+end;
+
+destructor TPedidoItemController.Destroy;
+begin
+  FPedidoItemDAO.Free;
+  FProdutoDAO.Free;
+  inherited;
+end;
+
+procedure TPedidoItemController.ExcluirProduto(CodigoProduto: Integer);
+var
+  PedidoItem: TPedidoItem;
+begin
+  PedidoItem := TPedidoItem.Create;
+  try
+    PedidoItem.CodigoProduto := CodigoProduto;
+    FPedidoItemDAO.ExcluiPedidoItem(PedidoItem);
+  finally
+    PedidoItem.Free;
+  end;
+end;
+
+procedure TPedidoItemController.GravarPedidoItem(CodigoProduto: Integer;
+Quantidade: Integer);
+var
+  PedidoItem: TPedidoItem;
+begin
+  PedidoItem := TPedidoItem.Create;
+  try
+    PedidoItem.CodigoProduto := CodigoProduto;
+    PedidoItem.Quantidade := Quantidade;
+    PedidoItem.AtualizarValores;
+    FPedidoItemDAO.GravarPedidoItemProduto(PedidoItem);
+  finally
+    PedidoItem.Free;
+  end;
+end;
+
+function TPedidoItemController.BuscarPrecoProduto(CodigoProduto: Integer): Currency;
+begin
+  Result := FProdutoDAO.ObterPrecoVenda(CodigoProduto);
+end;
+
+procedure TPedidoItemController.AtualizarItem(CodigoProduto: string; Quantidade: Integer);
+var
+  PedidoItem: TPedidoItem;
+begin
+  PedidoItem := TPedidoItem.Create;
+  try
+    PedidoItem.CodigoProduto := CodigoProduto;
+    PedidoItem.Quantidade := Quantidade;
+    PedidoItem.AtualizarValores;
+  finally
+    PedidoItem.Free;
+  end;
+end;
+
+end.
+

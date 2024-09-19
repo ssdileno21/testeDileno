@@ -1,0 +1,20 @@
+program TesteDileno;
+
+uses
+  Vcl.Forms,
+  uFrmPedidoVenda in 'views\uFrmPedidoVenda.pas' {Form1},
+  uProduto in 'model\uProduto.pas',
+  uItemPedido in 'model\uItemPedido.pas',
+  uPedido in 'model\uPedido.pas',
+  uCliente in 'model\uCliente.pas',
+  uPedidoDAO in 'DAO\uPedidoDAO.pas',
+  uPedidoController in 'controller\uPedidoController.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmPedidoVenda, frmPedidoVenda);
+  Application.Run;
+end.
